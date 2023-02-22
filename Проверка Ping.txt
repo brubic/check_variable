@@ -1,0 +1,12 @@
+
+    on error resume next               
+    crt.Session.Connect "/TELNET "+IP+" 23"
+    errcode = crt.GetLastError
+   'crt.Dialog.MessageBox "Error Code: " & errcode
+    if errcode <> 0 then
+      msgbox "Нет доступа до "+IP
+	  CreateObject("WScript.Shell").Run "cmd.exe /k "& "ping -t "+IP 
+      Exit sub
+    end if
+
+ 
